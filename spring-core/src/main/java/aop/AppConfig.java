@@ -10,6 +10,8 @@ import org.springframework.context.annotation.*;
 import java.security.SecureRandom;
 import java.util.Random;
 
+import javax.annotation.Resource;
+
 @Configuration
 @ComponentScan(basePackages = "aop")
 @EnableAspectJAutoProxy
@@ -20,18 +22,20 @@ public class AppConfig {
         return new SecureRandom();
     }
 
-    @Autowired @Qualifier("redSox")
-    private Team home;
+    @Resource
+    private Team redSox;
 
-    @Autowired @Qualifier("cubs")
-    private Team away;
+    @Resource
+    private Team cubs;
+
+    @Resource
+    private Team royals;
 
     @Bean
     @Scope("prototype")
     public Game game() {
-        BaseballGame game = new BaseballGame(home, away);
+        BaseballGame game = new BaseballGame(redSox, cubs);
         game.setRandom(random());
         return game;
-
     }
 }

@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class BaseballGame implements Game {
     private final Team homeTeam;
-    private Team awayTeam;
+    private final Team awayTeam;
     private Random random;
 
     public BaseballGame(Team homeTeam, Team awayTeam) {

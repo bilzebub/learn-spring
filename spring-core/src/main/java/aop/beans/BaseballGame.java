@@ -2,8 +2,11 @@ package aop.beans;
 
 import java.util.Random;
 
+import aop.aspects.Timed;
+
 public class BaseballGame implements Game {
-    private final Team homeTeam;
+
+    private Team homeTeam;
     private Team awayTeam;
     private Random random;
 
@@ -12,19 +15,48 @@ public class BaseballGame implements Game {
         this.awayTeam = awayTeam;
     }
 
-    public final Team getHomeTeam() {
-        return homeTeam;
-    }
 
-    public Team getAwayTeam() {
-        return awayTeam;
-    }
+  @Override
+  public Team getHomeTeam() {
+    return homeTeam;
+  }
 
-    public void setRandom(Random random) {
+  @Override
+  public void setHomeTeam(Team homeTeam) {
+    this.homeTeam = homeTeam;
+  }
+
+  @Override
+  public Team getAwayTeam() {
+    return awayTeam;
+  }
+
+  @Override
+  public void setAwayTeam(Team awayTeam) {
+    this.awayTeam = awayTeam;
+  }
+
+  @Override
+  public String toString() {
+    return "BaseballGame{" + homeTeam.getName() + " vs. " + awayTeam.getName() + "}";
+  }
+
+  public void setRandom(Random random) {
         this.random = random;
     }
 
-    public Team playGame() {
-        return random.nextBoolean() ? homeTeam : awayTeam;
+  @Timed
+  public void prepare() {
+    try {
+      Thread.sleep(random.nextInt(1000));
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
+  }
+
+  public Team playGame() {
+      Team winner = random.nextBoolean() ? homeTeam : awayTeam;
+      System.out.println(homeTeam.getName() + " vs. " + awayTeam.getName() + " => " + winner.getName());
+      return winner;
+  }
 }
