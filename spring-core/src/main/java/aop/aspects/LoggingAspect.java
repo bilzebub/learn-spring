@@ -32,10 +32,11 @@ public class LoggingAspect {
   }
 
   @Around("@annotation(Timed)")
-  public void measureDuration(ProceedingJoinPoint joinPoint) throws Throwable {
+  public Object measureDuration(ProceedingJoinPoint joinPoint) throws Throwable {
     long start = System.currentTimeMillis();
-    joinPoint.proceed();
+    Object result = joinPoint.proceed();
     System.out.println("Prepare for " + (System.currentTimeMillis() - start) + " ms");
+    return result;
   }
 
 }
