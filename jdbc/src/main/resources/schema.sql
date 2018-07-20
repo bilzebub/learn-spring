@@ -1,0 +1,1 @@
+CREATE TABLE account(id BIGINT PRIMARY KEY auto_increment, balance DECIMAL NOT NULL)
