@@ -1,11 +1,10 @@
-package learn.jdbc.repositories;
+package learn.jpa.repositories;
 
-import learn.jdbc.config.AppConfig;
-import learn.jdbc.entities.Account;
+import learn.jpa.config.AppConfig;
+import learn.jpa.entities.Account;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +20,7 @@ import static org.hamcrest.number.BigDecimalCloseTo.closeTo;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = AppConfig.class)
 @Transactional
-@ActiveProfiles({"prod", "test"})
-public class JdbcAccountRepositoryTest {
+public class JpaAccountRepositoryTest {
 
     @Autowired
     private AccountRepository repository;
@@ -48,7 +46,7 @@ public class JdbcAccountRepositoryTest {
 
     @Test
     public void testCreateAccount() throws Exception {
-        Long id = repository.createAccount(new BigDecimal("250.00"));
+        Long id = repository.createAccount(new BigDecimal("250.0"));
         assertThat(id, is(notNullValue()));
 
         Account account = repository.getAccount(id);

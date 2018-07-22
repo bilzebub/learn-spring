@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import learn.jdbc.entities.Account;
 
 @Repository
-// @Profile({"prod", "test"})
+@Profile({"prod", "test"})
 public class JdbcAccountRepository implements AccountRepository {
     private final JdbcTemplate template;
 

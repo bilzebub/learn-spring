@@ -1,10 +1,9 @@
-package learn.jdbc.services;
+package learn.jpa.services;
 
-import learn.jdbc.config.AppConfig;
+import learn.jpa.config.AppConfig;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +17,6 @@ import static org.hamcrest.number.BigDecimalCloseTo.closeTo;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = AppConfig.class)
 @Transactional
-@ActiveProfiles("test")
 public class AccountServiceTest {
     @Autowired
     private AccountService service;

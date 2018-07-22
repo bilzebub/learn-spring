@@ -2,9 +2,9 @@ package learn.jdbc;
 
 import java.util.Arrays;
 
+import learn.jdbc.config.AppConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Profile;
 
 import learn.jdbc.services.AccountService;
 

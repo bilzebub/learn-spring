@@ -1,4 +1,4 @@
-package learn.jdbc;
+package learn.jdbc.config;
 
 import javax.sql.DataSource;
 
@@ -22,10 +22,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class AppConfig {
 
-  @Autowired
+  @Autowired // содержит пропертис из @PropertySource
   private Environment env;
 
-  // @Profile({"test", "prod"})
+  /**
+    нужен для управлениями транзакциями при обращении в БД, использунтся аннотацией @Transactional
+   */
+  @Profile({"test", "prod"})
   @Bean
   public PlatformTransactionManager transactionManager(DataSource dataSource) {
     return new DataSourceTransactionManager(dataSource);
