@@ -7,6 +7,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import learn.spring.configuration.annotations.entities.Game;
 import learn.spring.configuration.annotations.entities.Team;
 
+
+/**
+ * difference from java configuration is in using annotations:
+ * ComponentScan for config class
+ * Component/Repository/Service and Autowired(optionally) for bean classes
+ */
+
 public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
