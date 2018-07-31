@@ -1,0 +1,10 @@
+1. load bean definitions
+2. post process bean definitions
+3. create beans:
+  a) instantiation (using constructor or @Bean method)
+  a) autowired setters/fields
+  b) BeanPostProcessor::postProcessBeforeInitialization
+  c) @PostConstruct
+  d) BeanPostProcessor::postProcessAfterInitialization
+4 use beans
+5. @PreDestroy
