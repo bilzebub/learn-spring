@@ -5,6 +5,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 
@@ -27,7 +28,11 @@ public class LoggingAspect {
     return result;
   }
 
-  @Around("@annotation(learn.spring.aop.aspects.Timed)")
+  @Pointcut("@annotation(Timed)")
+  public void measure() {
+  }
+
+  @Around("measure()")
   public Object measureDuration(ProceedingJoinPoint joinPoint) throws Throwable {
     long start = System.currentTimeMillis();
     Object result = joinPoint.proceed();
