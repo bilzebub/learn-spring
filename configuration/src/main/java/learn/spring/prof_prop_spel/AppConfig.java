@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@ComponentScan("learn.spring.features.prof_prop_spel")
+@ComponentScan("learn.spring.prof_prop_spel")
 @PropertySource("classpath:application.properties")
 @PropertySource("classpath:${db.props.path}")
 public class AppConfig {
