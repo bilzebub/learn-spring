@@ -2,9 +2,9 @@
 2. post process bean definitions
 3. create beans:
   a) instantiation (using constructor or @Bean method)
-  a) autowired setters/fields
-  b) BeanPostProcessor::postProcessBeforeInitialization
-  c) @PostConstruct
-  d) BeanPostProcessor::postProcessAfterInitialization
-4 use beans
+  b) autowired setters/fields
+  c) BeanPostProcessor::postProcessBeforeInitialization
+  d) @PostConstruct
+  e) BeanPostProcessor::postProcessAfterInitialization
+4. use beans
 5. @PreDestroy
